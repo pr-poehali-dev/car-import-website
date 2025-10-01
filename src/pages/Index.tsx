@@ -36,7 +36,7 @@ const Index = () => {
       country: 'Корея',
       price: 'от 5 200 000 ₽',
       year: '2024',
-      image: '/img/fa8d39e3-9c21-4d66-8ea8-76af5e908ea7.jpg'
+      image: '/img/5419e099-868c-4083-99f9-1f5e5e3f979c.jpg'
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ const Index = () => {
       country: 'Германия',
       price: 'от 12 000 000 ₽',
       year: '2024',
-      image: '/img/33a32b85-5c72-4f18-8eea-3664679c4a3f.jpg'
+      image: '/img/a2f79982-f141-49d3-8c36-17c290ae14d5.jpg'
     }
   ];
 
@@ -155,7 +155,7 @@ const Index = () => {
             </div>
             <div className="animate-scale-in">
               <img 
-                src="/img/33a32b85-5c72-4f18-8eea-3664679c4a3f.jpg" 
+                src="/img/a2f79982-f141-49d3-8c36-17c290ae14d5.jpg" 
                 alt="Premium car" 
                 className="rounded-lg shadow-2xl w-full"
               />
@@ -170,7 +170,7 @@ const Index = () => {
             {countries.map((country, index) => (
               <Card 
                 key={index} 
-                className="hover-scale cursor-pointer border-primary/20 hover:border-primary/50 transition-all"
+                className="hover-lift cursor-pointer border-primary/20 hover:border-primary transition-all"
               >
                 <CardContent className="p-6 text-center">
                   <div className="text-5xl mb-3">{country.icon}</div>
@@ -191,7 +191,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {cars.map((car) => (
-              <Card key={car.id} className="overflow-hidden hover-scale border-primary/20">
+              <Card key={car.id} className="overflow-hidden hover-lift border-primary/20">
                 <div className="relative h-64 overflow-hidden">
                   <img 
                     src={car.image} 
@@ -255,7 +255,7 @@ const Index = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {guarantees.map((guarantee, index) => (
-              <Card key={index} className="border-primary/20 hover:border-primary/50 transition-all hover-scale">
+              <Card key={index} className="border-primary/20 hover:border-primary transition-all hover-lift">
                 <CardContent className="p-6">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
                     <Icon name="ShieldCheck" size={24} className="text-primary" />
