@@ -15,10 +15,10 @@ const Index = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
 
   const countries = [
-    { name: 'Корея', icon: '🇰🇷', description: 'Hyundai, Kia, Genesis' },
-    { name: 'Германия', icon: '🇩🇪', description: 'Mercedes, BMW, Audi, Porsche' },
-    { name: 'США', icon: '🇺🇸', description: 'Tesla, Ford, Chevrolet' },
-    { name: 'Китай', icon: '🇨🇳', description: 'BYD, Geely, Li Auto' }
+    { name: 'Корея', icon: 'Zap', description: 'Hyundai, Kia, Genesis', color: 'from-blue-500 to-cyan-400' },
+    { name: 'Германия', icon: 'Cpu', description: 'Mercedes, BMW, Audi, Porsche', color: 'from-purple-500 to-pink-400' },
+    { name: 'США', icon: 'Rocket', description: 'Tesla, Ford, Chevrolet', color: 'from-orange-500 to-red-400' },
+    { name: 'Китай', icon: 'Sparkles', description: 'BYD, Geely, Li Auto', color: 'from-green-500 to-emerald-400' }
   ];
 
   const cars = [
@@ -78,26 +78,32 @@ const Index = () => {
 
   const guarantees = [
     {
+      icon: 'ShieldCheck',
       title: 'Юридическая чистота',
       description: 'Полная проверка истории автомобиля, отсутствие залогов и обременений'
     },
     {
+      icon: 'FileCheck',
       title: 'Договор с гарантиями',
       description: 'Официальный договор купли-продажи с прописанными обязательствами'
     },
     {
+      icon: 'Wrench',
       title: 'Техническая проверка',
       description: 'Диагностика в официальных сервисных центрах перед покупкой'
     },
     {
+      icon: 'Shield',
       title: 'Страхование сделки',
       description: 'Страхование рисков на всех этапах доставки автомобиля'
     },
     {
+      icon: 'UserCheck',
       title: 'Сопровождение',
       description: 'Юридическое сопровождение сделки от начала до постановки на учёт'
     },
     {
+      icon: 'RefreshCcw',
       title: 'Гарантия возврата',
       description: 'Возврат средств, если автомобиль не соответствует заявленным характеристикам'
     }
@@ -112,11 +118,14 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-primary/20">
+      <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-primary/30">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Icon name="Car" size={28} className="text-primary" />
-            <span className="text-2xl font-bold">Premium Auto Import</span>
+            <div className="relative">
+              <Icon name="Zap" size={28} className="text-primary animate-pulse-slow" />
+              <div className="absolute inset-0 blur-lg bg-primary/30"></div>
+            </div>
+            <span className="text-2xl font-bold gradient-text">AutoTech</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             <a href="#catalog" className="story-link text-foreground/80 hover:text-foreground">Каталог</a>
@@ -124,56 +133,98 @@ const Index = () => {
             <a href="#guarantees" className="story-link text-foreground/80 hover:text-foreground">Гарантии</a>
             <a href="#contact" className="story-link text-foreground/80 hover:text-foreground">Контакты</a>
           </div>
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Icon name="Phone" size={18} className="mr-2" />
-            Позвонить
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground glow-effect">
+            <Icon name="MessageCircle" size={18} className="mr-2" />
+            Связаться
           </Button>
         </div>
       </nav>
 
-      <section className="pt-32 pb-20 px-4">
-        <div className="container mx-auto">
+      <section className="relative pt-32 pb-20 px-4 tech-grid overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent"></div>
+        <div className="container mx-auto relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                Элитные автомобили из
-                <span className="text-primary"> Европы, Азии и США</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6">
+                <Icon name="Sparkles" size={16} className="text-primary" />
+                <span className="text-sm font-medium text-primary">Технологии будущего</span>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                <span className="gradient-text">Импорт премиальных</span>
+                <br />
+                автомобилей нового поколения
               </h1>
-              <p className="text-xl text-foreground/70 mb-8 leading-relaxed">
-                Официальный импорт премиальных автомобилей с полным юридическим сопровождением и гарантией качества
+              <p className="text-xl text-foreground/60 mb-8 leading-relaxed">
+                Инновационная платформа для импорта автомобилей премиум-класса с ИИ-помощником, блокчейн-проверкой и полным цифровым сопровождением
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Icon name="Search" size={20} className="mr-2" />
-                  Подобрать автомобиль
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground glow-effect">
+                  <Icon name="Sparkles" size={20} className="mr-2" />
+                  ИИ-подбор авто
                 </Button>
-                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
-                  <Icon name="Calculator" size={20} className="mr-2" />
-                  Рассчитать стоимость
+                <Button size="lg" variant="outline" className="border-primary/50 text-primary hover:bg-primary/10 hover:border-primary">
+                  <Icon name="Play" size={20} className="mr-2" />
+                  Смотреть демо
                 </Button>
               </div>
+              <div className="flex items-center gap-6 mt-8 text-sm text-foreground/50">
+                <div className="flex items-center gap-2">
+                  <Icon name="CheckCircle2" size={16} className="text-primary" />
+                  <span>Блокчейн-защита</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Icon name="CheckCircle2" size={16} className="text-primary" />
+                  <span>ИИ-аналитика</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Icon name="CheckCircle2" size={16} className="text-primary" />
+                  <span>24/7 мониторинг</span>
+                </div>
+              </div>
             </div>
-            <div className="animate-scale-in">
+            <div className="relative animate-float">
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl blur-2xl"></div>
               <img 
                 src="/img/a2f79982-f141-49d3-8c36-17c290ae14d5.jpg" 
                 alt="Premium car" 
-                className="rounded-lg shadow-2xl w-full"
+                className="relative rounded-2xl shadow-2xl w-full border border-primary/20"
               />
+              <div className="absolute -bottom-6 -right-6 bg-card border border-primary/30 rounded-xl p-4 backdrop-blur-md">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                    <Icon name="TrendingUp" size={24} className="text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold gradient-text">500+</div>
+                    <div className="text-xs text-foreground/60">Доставлено авто</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-card/30 backdrop-blur-sm">
-        <div className="container mx-auto px-4">
+      <section className="py-16 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-2 gradient-text">Страны-партнёры</h2>
+            <p className="text-foreground/60">Прямые поставки из лучших автохабов мира</p>
+          </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {countries.map((country, index) => (
               <Card 
                 key={index} 
-                className="hover-lift cursor-pointer border-primary/20 hover:border-primary transition-all"
+                className="group hover-lift cursor-pointer border-primary/20 hover:border-primary transition-all bg-card/50 backdrop-blur-sm relative overflow-hidden"
               >
-                <CardContent className="p-6 text-center">
-                  <div className="text-5xl mb-3">{country.icon}</div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${country.color} opacity-0 group-hover:opacity-10 transition-opacity`}></div>
+                <CardContent className="p-6 text-center relative z-10">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${country.color} p-0.5">
+                    <div className="w-full h-full bg-card rounded-2xl flex items-center justify-center">
+                      <Icon name={country.icon} size={32} className="text-primary" />
+                    </div>
+                  </div>
                   <h3 className="font-bold text-lg mb-2">{country.name}</h3>
                   <p className="text-sm text-foreground/60">{country.description}</p>
                 </CardContent>
@@ -186,32 +237,58 @@ const Index = () => {
       <section id="catalog" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Актуальные предложения</h2>
-            <p className="text-xl text-foreground/70">Автомобили в наличии и под заказ</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Актуальные</span> предложения
+            </h2>
+            <p className="text-xl text-foreground/60">Проверено ИИ • Блокчейн-сертификация • Онлайн-осмотр</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {cars.map((car) => (
-              <Card key={car.id} className="overflow-hidden hover-lift border-primary/20">
+              <Card key={car.id} className="group overflow-hidden hover-lift border-primary/20 bg-card/50 backdrop-blur-sm relative">
                 <div className="relative h-64 overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent z-10"></div>
                   <img 
                     src={car.image} 
                     alt={car.name} 
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute top-4 right-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold z-20 flex items-center gap-2">
+                    <Icon name="Sparkles" size={14} />
                     {car.year}
+                  </div>
+                  <div className="absolute top-4 left-4 bg-card/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium z-20 border border-primary/30">
+                    <Icon name="CheckCircle2" size={12} className="inline mr-1 text-primary" />
+                    ИИ-проверено
                   </div>
                 </div>
                 <CardContent className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-foreground/60 mb-2">
+                  <div className="flex items-center gap-2 text-sm text-foreground/60 mb-3">
+                    <Icon name="MapPin" size={14} />
                     <span>{car.country}</span>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{car.name}</h3>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-primary">{car.price}</span>
-                    <Button variant="outline" size="sm" className="border-primary text-primary">
-                      Подробнее
+                  <h3 className="text-xl font-bold mb-4 group-hover:text-primary transition-colors">{car.name}</h3>
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <div className="text-xs text-foreground/50 mb-1">Стоимость</div>
+                      <span className="text-2xl font-bold gradient-text">{car.price}</span>
+                    </div>
+                    <Button variant="outline" size="sm" className="border-primary/50 text-primary hover:bg-primary hover:text-primary-foreground glow-effect">
+                      <Icon name="ArrowRight" size={16} />
                     </Button>
+                  </div>
+                  <div className="flex items-center gap-4 text-xs text-foreground/50 pt-4 border-t border-primary/10">
+                    <div className="flex items-center gap-1">
+                      <Icon name="Shield" size={12} className="text-primary" />
+                      Гарантия
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Icon name="Truck" size={12} className="text-primary" />
+                      Доставка
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Icon name="FileCheck" size={12} className="text-primary" />
+                      Документы
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -220,25 +297,37 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="process" className="py-20 px-4 bg-card/30">
+      <section id="process" className="py-20 px-4 relative tech-grid">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Как это работает</h2>
-            <p className="text-xl text-foreground/70">Прозрачный процесс от выбора до получения автомобиля</p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-4">
+              <Icon name="Workflow" size={16} className="text-primary" />
+              <span className="text-sm font-medium text-primary">Автоматизированный процесс</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Как это <span className="gradient-text">работает</span>
+            </h2>
+            <p className="text-xl text-foreground/60">Цифровой процесс с полным контролем на каждом этапе</p>
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <Card className="h-full border-primary/20 hover:border-primary/50 transition-all">
+                <Card className="h-full border-primary/20 hover:border-primary transition-all bg-card/50 backdrop-blur-sm group hover-lift">
                   <CardContent className="p-6">
-                    <div className="text-6xl font-bold text-primary/20 mb-4">{step.number}</div>
-                    <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                    <p className="text-foreground/70 text-sm">{step.description}</p>
+                    <div className="relative mb-4">
+                      <div className="text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">{step.number}</div>
+                      <div className="absolute top-2 left-0 w-12 h-12 rounded-full bg-primary/20 blur-xl group-hover:bg-primary/30 transition-all"></div>
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{step.title}</h3>
+                    <p className="text-foreground/60 text-sm">{step.description}</p>
                   </CardContent>
                 </Card>
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
-                    <Icon name="ChevronRight" size={24} className="text-primary" />
+                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                    <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center">
+                      <Icon name="ArrowRight" size={16} className="text-primary" />
+                    </div>
                   </div>
                 )}
               </div>
@@ -250,28 +339,41 @@ const Index = () => {
       <section id="guarantees" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Гарантии и защита сделки</h2>
-            <p className="text-xl text-foreground/70">Ваша безопасность — наш приоритет</p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-4">
+              <Icon name="ShieldCheck" size={16} className="text-primary" />
+              <span className="text-sm font-medium text-primary">Блокчейн-защищено</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Гарантии</span> и защита сделки
+            </h2>
+            <p className="text-xl text-foreground/60">Многоуровневая система защиты ваших интересов</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {guarantees.map((guarantee, index) => (
-              <Card key={index} className="border-primary/20 hover:border-primary transition-all hover-lift">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                    <Icon name="ShieldCheck" size={24} className="text-primary" />
+              <Card key={index} className="group border-primary/20 hover:border-primary transition-all hover-lift bg-card/50 backdrop-blur-sm relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <CardContent className="p-6 relative z-10">
+                  <div className="relative mb-4">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                      <Icon name={guarantee.icon} size={28} className="text-primary" />
+                    </div>
+                    <div className="absolute inset-0 blur-xl bg-primary/20 group-hover:bg-primary/30 transition-all"></div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{guarantee.title}</h3>
-                  <p className="text-foreground/70">{guarantee.description}</p>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{guarantee.title}</h3>
+                  <p className="text-foreground/60">{guarantee.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
-          <div className="mt-12 bg-primary/5 border border-primary/20 rounded-lg p-8">
-            <div className="flex items-start gap-4">
-              <Icon name="FileCheck" size={32} className="text-primary flex-shrink-0 mt-1" />
+          <div className="mt-12 bg-card/50 backdrop-blur-sm border border-primary/30 rounded-2xl p-8 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+            <div className="flex items-start gap-4 relative z-10">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0">
+                <Icon name="FileCheck" size={32} className="text-primary" />
+              </div>
               <div>
-                <h3 className="text-2xl font-bold mb-3">Официальный договор</h3>
-                <p className="text-foreground/70 mb-4">
+                <h3 className="text-2xl font-bold mb-3 gradient-text">Цифровой смарт-контракт</h3>
+                <p className="text-foreground/60 mb-4">
                   Все сделки оформляются через официальный договор купли-продажи с полным описанием всех условий, 
                   сроков и гарантийных обязательств. Вы получаете полный пакет документов для постановки автомобиля на учёт.
                 </p>
@@ -299,11 +401,18 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-4 bg-card/30">
-        <div className="container mx-auto max-w-4xl">
+      <section id="contact" className="py-20 px-4 relative tech-grid">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent"></div>
+        <div className="container mx-auto max-w-4xl relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
-            <p className="text-xl text-foreground/70">Готовы ответить на все ваши вопросы</p>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-4">
+              <Icon name="MessageSquare" size={16} className="text-primary" />
+              <span className="text-sm font-medium text-primary">ИИ-консультант 24/7</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Свяжитесь</span> с нами
+            </h2>
+            <p className="text-xl text-foreground/60">Мгновенный ответ через ИИ-чат или личную консультацию</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="border-primary/20">
@@ -339,17 +448,17 @@ const Index = () => {
                       className="border-primary/20 focus:border-primary"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                    <Icon name="Send" size={18} className="mr-2" />
-                    Отправить заявку
+                  <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground glow-effect">
+                    <Icon name="Sparkles" size={18} className="mr-2" />
+                    Отправить ИИ-консультанту
                   </Button>
                 </form>
               </CardContent>
             </Card>
             <div className="space-y-6">
-              <Card className="border-primary/20">
+              <Card className="group border-primary/30 hover:border-primary transition-all bg-card/50 backdrop-blur-sm hover-lift">
                 <CardContent className="p-6 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0">
                     <Icon name="Phone" size={24} className="text-primary" />
                   </div>
                   <div>
@@ -359,9 +468,9 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-primary/20">
+              <Card className="group border-primary/30 hover:border-primary transition-all bg-card/50 backdrop-blur-sm hover-lift">
                 <CardContent className="p-6 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0">
                     <Icon name="Mail" size={24} className="text-primary" />
                   </div>
                   <div>
@@ -371,9 +480,9 @@ const Index = () => {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="border-primary/20">
+              <Card className="group border-primary/30 hover:border-primary transition-all bg-card/50 backdrop-blur-sm hover-lift">
                 <CardContent className="p-6 flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0">
                     <Icon name="MapPin" size={24} className="text-primary" />
                   </div>
                   <div>
@@ -388,14 +497,18 @@ const Index = () => {
         </div>
       </section>
 
-      <footer className="bg-card/50 border-t border-primary/20 py-12 px-4">
-        <div className="container mx-auto text-center">
+      <footer className="relative bg-card/30 border-t border-primary/30 py-12 px-4 backdrop-blur-sm">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent"></div>
+        <div className="container mx-auto text-center relative z-10">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Icon name="Car" size={28} className="text-primary" />
-            <span className="text-2xl font-bold">Premium Auto Import</span>
+            <div className="relative">
+              <Icon name="Zap" size={28} className="text-primary" />
+              <div className="absolute inset-0 blur-lg bg-primary/30"></div>
+            </div>
+            <span className="text-2xl font-bold gradient-text">AutoTech</span>
           </div>
           <p className="text-foreground/60 mb-6">
-            Официальный импорт автомобилей премиум-класса с 2015 года
+            Инновационная платформа для импорта премиум-автомобилей
           </p>
           <div className="flex justify-center gap-6 mb-6">
             <a href="#catalog" className="text-foreground/60 hover:text-primary transition-colors">Каталог</a>
@@ -403,8 +516,22 @@ const Index = () => {
             <a href="#guarantees" className="text-foreground/60 hover:text-primary transition-colors">Гарантии</a>
             <a href="#contact" className="text-foreground/60 hover:text-primary transition-colors">Контакты</a>
           </div>
-          <p className="text-sm text-foreground/40">
-            © 2024 Premium Auto Import. Все права защищены.
+          <div className="flex justify-center items-center gap-6 text-sm text-foreground/50 mt-8">
+            <div className="flex items-center gap-2">
+              <Icon name="Shield" size={14} className="text-primary" />
+              <span>Блокчейн</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Icon name="Brain" size={14} className="text-primary" />
+              <span>ИИ-аналитика</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Icon name="Lock" size={14} className="text-primary" />
+              <span>Защищено SSL</span>
+            </div>
+          </div>
+          <p className="text-sm text-foreground/40 mt-6">
+            © 2024 AutoTech. Все права защищены.
           </p>
         </div>
       </footer>
